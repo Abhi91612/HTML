@@ -1,0 +1,26 @@
+Day1  HTML Interview Questions
+How will you start a ordered list from 10 ?
+What input type will you use to upload a image ?
+Name any 5 Html5 tags
+What is dns and when it come in picture
+What is Markup
+SEO {Knowledge of basics}
+Inspect Elements
+Explain what is webpage designing
+How will u open another windows using anchor tag
+what does viewport meta tag do
+What are Attributes in html
+what is ip address
+what is localhost
+HTML5 vs HTML4
+what are semantic tags
+what are the new features in HTML5?
+Difference between div and span
+Difference between class and IDs
+What are self closing tags
+How many types of headings are der ?How to decide which to use where
+Difference between block and inline
+Difference between em and strong
+What are attributes?
+Difference between HTML tags and elements
+Explain br tags
