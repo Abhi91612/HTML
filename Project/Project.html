@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Backtracking</title>
   </head>
   <body
     style="margin: 50px; color: rgb(173, 159, 159); background-color: white"
@@ -71,7 +71,7 @@
     border-radius: 7px;
   ">
       <pre style="color: rgb(6, 6, 238);">
-            boolean solve(Node n) {
+        boolean solve(Node n) {
                 if n is a leaf node { 
                     if the leaf is a goal node, return true 
                     else return false 
@@ -123,7 +123,7 @@
       "
     >
       <pre style="color: rgb(6, 6, 238);">
-            for each child c of n {
+        for each child c of n {
                 if solve(c) succeeds, return true
             } 
             return false
@@ -145,7 +145,7 @@
       "
     >
       <pre style="color: rgb(6, 6, 238);">
-            if n is a leaf node {
+        if n is a leaf node {
                 if the leaf is a goal node, return true
                 else return false 
             }
@@ -184,7 +184,7 @@
       "
     >
       <pre style="color: rgb(6, 6, 238);">
-              boolean solve(Node n) {
+        boolean solve(Node n) {
                 put node n on the stack; 
                     while the stack is not empty {
                         if the node at the top of the stack is a leaf {
@@ -231,7 +231,7 @@
       "
     >
       <pre style="color: rgb(6, 6, 238);">
-            boolean solve(Node n) {
+        boolean solve(Node n) {
                 if n is a leaf node { 
                 if the leaf is a goal node {
                     print n return true 
@@ -360,7 +360,7 @@
       "
     >
       <pre style="color: rgb(6, 6, 238);">
-            static BinaryTree makeTree() { 
+        static BinaryTree makeTree() { 
                 BinaryTree root, a, b, c, d, e, f; 
                 c = new BinaryTree("C", null, null, false); 
                 d = new BinaryTree("D", null, null, false); 
@@ -383,11 +383,11 @@
       "
     >
       <pre style="color: rgb(6, 6, 238);">
-                public static void main(String args[]) { 
-                    BinaryTree tree = makeTree(); 
-                    System.out.println(solvable(tree)); 
-                }
-                    </pre
+        public static void main(String args[]) { 
+                BinaryTree tree = makeTree(); 
+                System.out.println(solvable(tree)); 
+            }
+                </pre
       >
     </div>
 
@@ -404,14 +404,14 @@
     >
       <pre style="color: rgb(6, 6, 238);">
         static boolean solvable(BinaryTree node) {
-                /* 1 */ if (node == null) return false; 
-                /* 2 */ if (node.isGoalNode) return true; 
-                /* 3 */ if (solvable(node.leftChild)) 
-                return true; 
-                /* 4 */ if (solvable(node.rightChild)) 
-                return true; 
-                /* 5 */ return false; 
-            }
+            /* 1 */ if (node == null) return false; 
+            /* 2 */ if (node.isGoalNode) return true; 
+            /* 3 */ if (solvable(node.leftChild)) 
+            return true; 
+            /* 4 */ if (solvable(node.rightChild)) 
+            return true; 
+            /* 5 */ return false; 
+        }
             </pre
       >
     </div>
@@ -515,16 +515,16 @@
       "
     >
       <pre style="color: rgb(6, 6, 238);">
-            boolean explore1(int row, int column, int color) { 
-                if (row >= NUM_ROWS)return mapIsOK(); 
-                map[row][column] = color; 
-                for (int nextColor = RED; 
-                nextColor <= BLUE; nextColor++) { int[] next = nextRowAndColumn(row, column); 
-                    if (explore1(next[0], next[1], nextColor)) 
-                    return true; 
-                } 
-                return false; 
-            }
+        boolean explore1(int row, int column, int color) { 
+            if (row >= NUM_ROWS)return mapIsOK(); 
+            map[row][column] = color; 
+            for (int nextColor = RED; 
+            nextColor <= BLUE; nextColor++) { int[] next = nextRowAndColumn(row, column); 
+                if (explore1(next[0], next[1], nextColor)) 
+                return true; 
+            } 
+            return false; 
+        }
                     </pre
       >
     </div>
@@ -538,19 +538,19 @@
       "
     >
       <pre style="color: rgb(6, 6, 238);">
-            boolean explore2(int row, int column, int color) { 
-                if (row >= NUM_ROWS)return true; 
-                if (okToColor(row, column, color)) { 
-                    map[row][column] = color; 
-                    for (int nextColor = RED; 
-                    nextColor <= BLUE; nextColor++) { 
-                        int[] next = nextRowAndColumn(row, column); 
-                        if (explore2(next[0], next[1], nextColor)) 
-                        return true; 
-                    } 
+        boolean explore2(int row, int column, int color) { 
+            if (row >= NUM_ROWS)return true; 
+            if (okToColor(row, column, color)) { 
+                map[row][column] = color; 
+                for (int nextColor = RED; 
+                nextColor <= BLUE; nextColor++) { 
+                    int[] next = nextRowAndColumn(row, column); 
+                    if (explore2(next[0], next[1], nextColor)) 
+                    return true; 
                 } 
-                return false; 
-            }
+            } 
+            return false; 
+        }
                         </pre
       >
     </div>
@@ -634,24 +634,21 @@
       "
     >
       <pre style="color: rgb(6, 6, 238);">
-            static String indent = "";
+        static String indent = "";
             static String name(BinaryTree node) { 
                 if (node == null) return null; 
                 else return node.name; 
             } 
-            
             static void enter(BinaryTree node) {
                 System.out.println(indent + "Entering solvable(" + name(node) + ")"); 
                 indent = indent + "| "; 
             } 
-            
             static boolean yes(BinaryTree node) { 
                 indent = indent.substring(3); 
                 System.out.println(indent + "solvable(" + name(node) + ") 
                 returns true"); 
                 return true; 
             } 
-            
             static boolean no(BinaryTree node) { 
                 indent = indent.substring(3); 
                 System.out.println(indent + "solvable(" + name(node) + ") 
@@ -670,43 +667,43 @@
       "
     >
       <pre style="color: rgb(6, 6, 238);">
-            static boolean solvable(BinaryTree node) { 
-                enter(node); if (node == null) 
-                return no(node); 
-                if (node.isGoalNode) return yes(node); 
-                if (solvable(node.leftChild)) 
-                return yes(node); 
-                if (solvable(node.rightChild)) 
-                return yes(node); 
-                return no(node); 
-            }
+        static boolean solvable(BinaryTree node) { 
+            enter(node); if (node == null) 
+            return no(node); 
+            if (node.isGoalNode) return yes(node); 
+            if (solvable(node.leftChild)) 
+            return yes(node); 
+            if (solvable(node.rightChild)) 
+            return yes(node); 
+            return no(node); 
+        }
                     </pre
       >
     </div>
 
     <p>And we get these results:</p>
     <pre>
-                        Entering solvable(Root) 
-                        | Entering solvable(A) 
-                        | | Entering solvable(C) 
-                        | | | Entering solvable(null) 
-                        | | | solvable(null) returns false 
-                        | | | Entering solvable(null) 
-                        | | | solvable(null) returns false 
-                        | | solvable(C) returns false 
-                        | | Entering solvable(D) 
-                        | | | Entering solvable(null) 
-                        | | | solvable(null) returns false 
-                        | | | Entering solvable(null) 
-                        | | | solvable(null) returns false 
-                        | | solvable(D) returns false 
-                        | solvable(A) returns false 
-                        | Entering solvable(B) 
-                        | | Entering solvable(E) 
-                        | | solvable(E) returns true 
-                        | solvable(B) returns true 
-                        solvable(Root) returns true 
-                        true
+                    Entering solvable(Root) 
+                    | Entering solvable(A) 
+                    | | Entering solvable(C) 
+                    | | | Entering solvable(null) 
+                    | | | solvable(null) returns false 
+                    | | | Entering solvable(null) 
+                    | | | solvable(null) returns false 
+                    | | solvable(C) returns false 
+                    | | Entering solvable(D) 
+                    | | | Entering solvable(null) 
+                    | | | solvable(null) returns false 
+                    | | | Entering solvable(null) 
+                    | | | solvable(null) returns false 
+                    | | solvable(D) returns false 
+                    | solvable(A) returns false 
+                    | Entering solvable(B) 
+                    | | Entering solvable(E) 
+                    | | solvable(E) returns true 
+                    | solvable(B) returns true 
+                    solvable(Root) returns true 
+                    true
                     </pre
     >
     <br />
@@ -737,23 +734,23 @@
       "
     >
       <pre style="color: rgb(6, 6, 238);">
-            static final boolean debugging = false;
+        static final boolean debugging = false;
             
-            static void enter(BinaryTree node) { 
+        static void enter(BinaryTree node) { 
                 if (debugging) { 
                     System.out.println(indent + "Entering solvable(" + name(node) + ")");
                     indent = indent + "| "; 
                 } 
             } 
 
-            static boolean yes(BinaryTree node) { 
+        static boolean yes(BinaryTree node) { 
                 if (debugging) {
                     indent = indent.substring(3); 
                     System.out.println(indent + "solvable(" + name(node) + ") returns true"); 
                 } 
                 return true; 
             } 
-            static boolean no(BinaryTree node) { 
+         static boolean no(BinaryTree node) { 
                 if (debugging) { 
                     indent = indent.substring(3); 
                     System.out.println(indent + "solvable(" + name(node) + ") returns false"); 
@@ -788,8 +785,8 @@
         border-radius: 7px;
       "
     >
-      <pre>
-            new Exception("Checkpoint Charlie").printStackTrace(System.out);
+      <pre  style="color: rgb(6, 6, 238);">
+        new Exception("Checkpoint Charlie").printStackTrace(System.out);
                             </pre
       >
     </div>
@@ -806,12 +803,12 @@
       "
     >
       <pre style="color: rgb(6, 6, 238);">
-            java.lang.Exception: Checkpoint Charlie 
-                at TreeSearch solvable(TreeSearch.java:53) 
-                at TreeSearch.solvable(TreeSearch.java:57) 
-                at TreeSearch.main(TreeSearch.java:72) 
-                at __SHELL38.run(__SHELL38.java:16) 
-                at bluej.runtime.ExecServer.suspendExecution(Unknown Source)
+        java.lang.Exception: Checkpoint Charlie 
+            at TreeSearch solvable(TreeSearch.java:53) 
+            at TreeSearch.solvable(TreeSearch.java:57) 
+            at TreeSearch.main(TreeSearch.java:72) 
+            at __SHELL38.run(__SHELL38.java:16) 
+            at bluej.runtime.ExecServer.suspendExecution(Unknown Source)
                                 </pre
       >
     </div>
@@ -1008,21 +1005,21 @@
       "
     >
       <pre style="color: rgb(6, 6, 238);">
-            boolean solvable(int[] board) { 
-                if (puzzleSolved(board)) { 
-                    return true;
-                } 
-                for (int position = 0; position < BOARD_SIZE; position++) { 
-                    if (canMove(board, position)) { 
-                        int[] newBoard = makeMove(board, position); 
-                        if (solvable(newBoard)) { 
-                            printBoard(newBoard); 
-                            return true; 
-                        } 
+        boolean solvable(int[] board) { 
+            if (puzzleSolved(board)) { 
+                return true;
+            } 
+            for (int position = 0; position < BOARD_SIZE; position++) { 
+                if (canMove(board, position)) { 
+                    int[] newBoard = makeMove(board, position); 
+                    if (solvable(newBoard)) { 
+                        printBoard(newBoard); 
+                        return true; 
                     } 
                 } 
-                return false; 
-            }
+            } 
+            return false; 
+        }
 
                         </pre
       >
